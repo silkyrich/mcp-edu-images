@@ -32,7 +32,7 @@ export async function downloadImage(
   const baseName = options.filename || sanitizeFilename(result.title);
   const filename = baseName.endsWith(ext) ? baseName : `${baseName}${ext}`;
 
-  const outputDir = getOutputDir();
+  const outputDir = join(getOutputDir(), result.source);
   await mkdir(outputDir, { recursive: true });
 
   const filePath = join(outputDir, filename);
